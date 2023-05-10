@@ -1,4 +1,4 @@
-
+#!/bin/bash
 cat <<EOF > /etc/systemd/system/codax.service
 [Unit]
 Description= CODAX client for detecting CPU exhaustive DOS attacks 

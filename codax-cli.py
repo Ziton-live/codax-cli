@@ -23,17 +23,24 @@ def version():
 def install():
     command = ['sudo', 'echo', 'CODAX CLI']
     subprocess.run(command)  # nosec
+    i=0
     for prompt, script in scripts:
         spinner = Halo(text=f"CODAX CLI {VERSION}", spinner='dots')
         spinner.start()
         spinner.text = prompt
-        command = ['sudo', 'bash', f'curl -o- {script} | bash']
-        if not subprocess.run(command).returncode:  # nosec
+        script_file = f"script{i}.sh" #nosec
+        subprocess.run(["curl", "-o", script_file, script]) #nosec
+        subprocess.run(["chmod", "+x", script_file]) #nosec
+        subprocess.run(["bash",  script_file]) #nosec
+        i+=1
+    
+        if not subprocess.run(["./" + script_file]).returncode:  # nosec
             spinner.stop_and_persist(symbol='🦄 '.encode(
                 'utf-8'), text=f'\033[1;32mCompleted:{prompt}\n')
         else:
             spinner.fail(f"Failed:{prompt}")
         spinner.stop()
+        
     print("\nInstalled Succesfully!  \n")
 
 
