@@ -2,9 +2,9 @@ import subprocess  # nosec
 import termplotlib as tpl
 import numpy as np
 import os
-scripts = [["Disabling existing services", "https://raw.githubusercontent.com/AJITH-klepsydra/codax-cli/master/scripts/install/disable-codax.sh"],
-           ["Fetching", 'https://raw.githubusercontent.com/AJITH-klepsydra/codax-cli/master/scripts/install/fetch-source.sh'], ["Compiling", "https://raw.githubusercontent.com/AJITH-klepsydra/codax-cli/master/scripts/install/compile.sh"],
-           ["Enabling codax.services", "https://raw.githubusercontent.com/AJITH-klepsydra/codax-cli/master/scripts/install/enable-codax.sh"]]
+scripts = [["Disabling existing services", "compile.sh"],
+           ["Fetching", 'disable-codax.sh'], ["Compiling", "compile.sh"],
+           ["Enabling codax.services", "enable-codax.sh"]]
 
 
 def plot_table(data):

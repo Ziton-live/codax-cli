@@ -1,5 +1,5 @@
 #!/bin/bash
-cat <<EOF > /etc/systemd/system/codax.service
+sudo cat <<EOF > /etc/systemd/system/codax.service
 [Unit]
 Description= CODAX client for detecting CPU exhaustive DOS attacks 
 After=network.target
@@ -16,6 +16,6 @@ Restart=always
 WantedBy=multi-user.target
 EOF
 
-systemctl daemon-reload
-systemctl enable codax.service
-systemctl start codax.service
+sudo systemctl daemon-reload
+sudo systemctl enable codax.service
+sudo systemctl start codax.service

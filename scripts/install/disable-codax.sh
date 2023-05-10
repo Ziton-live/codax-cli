@@ -1,3 +1,3 @@
 #!/bin/bash
-systemctl disable codax.service
-systemctl stop codax.service
+sudo systemctl disable codax.service
+sudo systemctl stop codax.service
